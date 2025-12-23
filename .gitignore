@@ -38,7 +38,8 @@ recordings/
 !README_TR.md
 
 # IDE
-.vscode/
+.vscode/*
+!.vscode/settings.json
 .idea/
 *.swp
 *.swo
