@@ -35,6 +35,7 @@ recordings/
 *.mp3
 *.md
 !README.md
+!README_TR.md
 
 # IDE
 .vscode/

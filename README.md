@@ -1,175 +1,234 @@
 # 🎙️ Audio Transcriber
 
-Windows için ses kayıt ve transkripsiyon uygulaması. Mikrofon ve sistem sesini kaydeder, 10 dakikalık bloklara ayırır, Gladia ile transkript eder ve Gemini AI ile not çıkarır.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
-## ✨ Özellikler
+**[English](#)** | **[Türkçe](./README_TR.md)**
 
-- 🎤 **Çoklu Ses Kaydı** - Mikrofon + Sistem sesi aynı anda
-- 📦 **Akıllı Bloklama** - 10 dk'lık parçalar (maliyet optimizasyonu)
-- 🎮 **Blok Oynatma** - Her bloğu dinleyerek inceleme
-- ✅ **Esnek Seçim** - İstediğin blokları seçip çevir
-- 📝 **Gladia Transkripsiyon** - Yüksek doğruluklu Türkçe çeviri
-- 🤖 **Gemini AI Notları** - Otomatik not çıkarma
-- 💾 **Markdown Export** - Notları kaydet ve paylaş
-- 🎨 **Modern UI** - CustomTkinter ile profesyonel arayüz
+A professional audio recording and transcription application for Windows. Record microphone and system audio simultaneously, automatically split into 10-minute blocks, transcribe with Gladia AI, and generate smart notes with Gemini.
 
-## 🚀 Kurulum
+## ✨ Features
 
-### 1. Python Ortamı
+- 🎤 **Multi-Source Recording** - Record microphone and system audio simultaneously
+- 📦 **Smart Block Management** - Automatic 10-minute blocks for cost optimization
+- 🎮 **Playback Preview** - Listen to each block before transcribing
+- ✅ **Flexible Selection** - Choose which blocks to transcribe
+- 📝 **Gladia Transcription** - High-accuracy Turkish transcription
+- 🤖 **Gemini AI Notes** - Automatic note generation and summarization
+- 💾 **Markdown Export** - Save and share notes easily
+- 🎨 **Modern UI** - Professional interface built with CustomTkinter
+- 🗑️ **Block Management** - Delete unwanted blocks
+- 📊 **Batch Operations** - Select all/none with one click
+- ⏱️ **Progress Tracking** - Real-time recording and playback progress
 
-```bash
-# Proje klasörünü klonla
-git clone https://github.com/yourusername/audio_transcriber.git
-cd audio_transcriber
+## 📸 Screenshots
 
-# Virtual environment (önerilir)
-python -m venv venv
-venv\Scripts\activate  # Windows
-source venv/bin/activate  # Linux/Mac
+> *Coming soon - UI screenshots will be added*
 
-# Bağımlılıkları yükle
-pip install -r requirements.txt
-```
+## 🚀 Quick Start
 
-### 2. API Anahtarları
+### Prerequisites
 
-**Gladia API Key:**
-1. https://app.gladia.io/ adresine git
-2. Ücretsiz hesap oluştur
-3. Dashboard'dan API key al
+- Python 3.10 or higher
+- Windows OS (for system audio recording)
+- [Gladia API Key](https://app.gladia.io/)
+- [Gemini API Key](https://aistudio.google.com/apikey)
 
-**Gemini API Key:**
-1. https://aistudio.google.com/apikey adresine git
-2. Google hesabınla giriş yap
-3. API key oluştur
+### Installation
 
-### 3. Konfigürasyon
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/audio_transcriber.git
+   cd audio_transcriber
+   ```
 
-`.env.example` dosyasını `.env` olarak kopyala ve API anahtarlarını ekle:
+2. **Create virtual environment**
+   ```bash
+   python -m venv venv
+   venv\Scripts\activate  # Windows
+   source venv/bin/activate  # Linux/Mac
+   ```
 
-```bash
-cp .env.example .env
-```
+3. **Install dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-`.env` dosyasını düzenle:
+4. **Configure API keys**
 
-```env
-GLADIA_API_KEY=your-gladia-key-here
-GEMINI_API_KEY=your-gemini-key-here
-```
+   Copy `.env.example` to `.env`:
+   ```bash
+   cp .env.example .env
+   ```
 
-Veya environment variable olarak ayarla:
+   Edit `.env` and add your API keys:
+   ```env
+   GLADIA_API_KEY=your-gladia-key-here
+   GEMINI_API_KEY=your-gemini-key-here
+   ```
 
-```bash
-# Windows
-set GLADIA_API_KEY=your-key
-set GEMINI_API_KEY=your-key
+5. **Run the application**
+   ```bash
+   python main.py
+   ```
 
-# Linux/Mac
-export GLADIA_API_KEY=your-key
-export GEMINI_API_KEY=your-key
-```
+## 📖 Usage
 
-## 📖 Kullanım
+### Basic Workflow
 
-### Uygulamayı Başlat
+1. **Select Audio Sources**
+   - Choose microphone from dropdown
+   - Choose system audio (Stereo Mix/MOTIV Mix) if needed
 
-```bash
-python main.py
-```
+2. **Record Audio**
+   - Click ⏺️ "Start Recording" button
+   - Recording automatically splits into 10-minute blocks
+   - Click ⏹️ "Stop" when done
 
-### İş Akışı
+3. **Preview Blocks**
+   - Click ▶️ on any block card to listen
+   - Progress bar shows playback status
+   - Click ⏸️ to pause
 
-1. **Kaynak Seç** - Mikrofon ve/veya Sistem Sesi
-2. **Kayda Başla** - ⏺️ butonuna tıkla
-3. **Kaydet** - Otomatik 10 dk bloklar oluşur
-4. **Kaydı Durdur** - ⏹️ butonuna tıkla
-5. **Blokları Dinle** - ▶️ butonuyla her bloğu önizle
-6. **Blok Seç** - Transkript etmek istediklerini seç
-7. **Çevir** - "Seçilenleri Çevir" butonuna tıkla
-8. **Not Çıkar** - "Gemini ile Not Çıkar" butonuna tıkla
-9. **Kaydet** - Notları markdown olarak dışa aktar
+4. **Select Blocks**
+   - Use checkboxes to select blocks for transcription
+   - "All" button selects all blocks
+   - "None" button deselects all
 
-## 💰 Maliyet Tahmini
+5. **Transcribe**
+   - Click "Transcribe Selected →"
+   - Watch progress for each block
+   - View transcript in the right panel
 
-| Servis | Birim Fiyat | 10 dk | 1 saat |
-|--------|-------------|-------|--------|
-| Gladia | ~$0.0002/sn | ~$0.12 | ~$0.70 |
-| Gemini Flash | Ücretsiz* | $0 | $0 |
+6. **Generate Notes**
+   - Click 🤖 "Generate Notes with Gemini"
+   - AI analyzes transcript and creates structured notes
+   - Notes appear in the bottom panel
 
-*Gemini 2.5 Flash günlük ücretsiz limit içinde.
+7. **Export**
+   - Click 💾 "Save as Markdown"
+   - Choose location and filename
+   - Share your notes!
 
-## 📁 Proje Yapısı
+### Enabling System Audio (Windows)
+
+To record system audio, enable "Stereo Mix":
+
+1. Right-click speaker icon → **Sound Settings**
+2. Click **Sound Control Panel** → **Recording** tab
+3. Right-click empty space → **Show Disabled Devices**
+4. Right-click **Stereo Mix** → **Enable**
+5. Set as default or select in the app
+
+## ⚙️ Configuration
+
+### Environment Variables
+
+| Variable | Description | Required |
+|----------|-------------|----------|
+| `GLADIA_API_KEY` | API key from Gladia.io | Yes |
+| `GEMINI_API_KEY` | API key from Google AI Studio | Yes |
+
+### Settings (config.py)
+
+| Setting | Default | Description |
+|---------|---------|-------------|
+| `SAMPLE_RATE` | 44100 | Audio sample rate in Hz |
+| `BLOCK_DURATION_MINUTES` | 10 | Recording block duration |
+| `RECORDINGS_DIR` | "recordings" | Directory for audio files |
+| `GEMINI_MODEL` | "gemini-2.5-flash" | Gemini model version |
+
+## 💰 Cost Estimation
+
+| Service | Unit Price | 10 min | 1 hour |
+|---------|-----------|--------|--------|
+| Gladia | ~$0.0002/sec | ~$0.12 | ~$0.70 |
+| Gemini Flash | Free* | $0 | $0 |
+
+*Gemini 2.5 Flash is free within daily limits.
+
+## 📁 Project Structure
 
 ```
 audio_transcriber/
-├── main.py              # Ana uygulama & UI
-├── audio_recorder.py    # Ses kayıt modülü
-├── gladia_service.py    # Gladia API entegrasyonu
-├── gemini_service.py    # Gemini AI entegrasyonu
-├── config.py            # Konfigürasyon
-├── requirements.txt     # Bağımlılıklar
-├── .env.example         # Environment variables örneği
-├── .gitignore           # Git ignore kuralları
-└── recordings/          # Kayıt dosyaları (otomatik oluşur)
+├── main.py              # Main application & UI
+├── audio_recorder.py    # Audio recording module
+├── gladia_service.py    # Gladia API integration
+├── gemini_service.py    # Gemini AI integration
+├── config.py            # Configuration
+├── requirements.txt     # Dependencies
+├── .env.example         # Environment variables template
+├── .gitignore           # Git ignore rules
+├── README.md            # English documentation
+├── README_TR.md         # Turkish documentation
+└── recordings/          # Audio files (auto-created)
 ```
 
-## 🎨 Arayüz Özellikleri
+## 🔧 Troubleshooting
 
-### Blok Kartları
-- **▶️ Oynat/⏸️ Duraklat** - Blokları dinle
-- **Progress Bar** - Oynatma ilerlemesi
-- **Süre Göstergesi** - Her bloğun uzunluğu
-- **Seçim Toggle** - Checkbox ile seçim
-- **🗑️ Silme** - İstenmeyen blokları sil
-- **Durum Göstergesi** - Çevriliyor... / ✓ Tamamlandı / ✗ Hata
+### "Microphone not found" error
+- Check default microphone in Windows Sound Settings
+- Verify microphone permissions for the application
 
-### Toplu İşlemler
-- **Tümü** - Tüm blokları seç
-- **Hiçbiri** - Seçimi kaldır
-- **Seçili Sayısı** - Kaç blok seçili gösterimi
+### "Loopback not found" error
+- Enable "Stereo Mix" or "Stereo Karışımı" in Windows:
+  - Sound Settings → Recording → Right-click → Show Disabled Devices
+  - Enable Stereo Mix/Karışımı
 
-## 🔧 Sorun Giderme
+### Gladia API errors
+- Verify API key is correct
+- Check internet connection
+- Verify credit balance in Gladia dashboard
 
-### "Mikrofon bulunamadı" hatası
-- Windows Ses Ayarları'ndan varsayılan mikrofonu kontrol et
-- Mikrofon iznini kontrol et
+### Gemini API errors
+- Verify API key is correct
+- Check if daily limit exceeded
+- Ensure model name is correct
 
-### "Loopback bulunamadı" hatası
-- Windows'ta "Stereo Mix" veya "Stereo Karışımı" etkinleştir:
-  - Ses Ayarları → Kayıt → Sağ tık → Devre Dışı Cihazları Göster
-  - Stereo Mix/Karışımı'nı etkinleştir
+## 🎯 Roadmap
 
-### Gladia API hatası
-- API key'i kontrol et
-- İnternet bağlantısını kontrol et
-- Gladia dashboard'dan kredi durumunu kontrol et
+- [ ] Real-time transcription
+- [ ] Speaker diarization (identify different speakers)
+- [ ] Multiple note templates
+- [ ] Automatic language detection
+- [ ] Audio quality indicator
+- [ ] Keyboard shortcuts/hotkeys
+- [ ] Multi-language support
+- [ ] Export to PDF and DOCX
+- [ ] Cloud storage integration
+- [ ] Collaboration features
 
-### Gemini API hatası
-- API key'i kontrol et
-- Günlük limit aşıldı mı kontrol et
+## 🤝 Contributing
 
-## 🎯 Gelecek Özellikler
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-- [ ] Real-time transkripsiyon
-- [ ] Konuşmacı ayrımı (diarization)
-- [ ] Farklı not şablonları seçimi
-- [ ] Otomatik dil algılama
-- [ ] Ses kalitesi göstergesi
-- [ ] Hotkey desteği
-- [ ] Çoklu dil desteği
-- [ ] Export formatları (PDF, DOCX)
+1. Fork the project
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-## 🤝 Katkıda Bulunma
+## 📄 License
 
-Pull request'ler memnuniyetle karşılanır. Büyük değişiklikler için lütfen önce bir issue açın.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 📄 Lisans
+## 🙏 Acknowledgments
 
-MIT License
-
-## 🙏 Teşekkürler
-
-- [Gladia](https://gladia.io/) - Transkripsiyon API
-- [Google Gemini](https://ai.google.dev/) - AI not çıkarma
+- [Gladia](https://gladia.io/) - Transcription API
+- [Google Gemini](https://ai.google.dev/) - AI note generation
 - [CustomTkinter](https://github.com/TomSchimansky/CustomTkinter) - Modern UI framework
+- [sounddevice](https://python-sounddevice.readthedocs.io/) - Audio I/O library
+- [soundfile](https://github.com/bastibe/python-soundfile) - Audio file operations
+
+## 📧 Contact
+
+Yunus Emre Alpak - [@yunusemrealpak](https://github.com/yunusemrealpak)
+
+Project Link: [https://github.com/yourusername/audio_transcriber](https://github.com/yourusername/audio_transcriber)
+
+---
+
+<div align="center">
+Made with ❤️ by Yunus Emre Alpak
+</div>
