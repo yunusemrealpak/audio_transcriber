@@ -10,10 +10,10 @@ import numpy as np
 
 import customtkinter as ctk
 
-from audio_recorder import AudioRecorder
-from gladia_service import GladiaService, format_transcript
-from gemini_service import GeminiService, save_notes_to_markdown
-from config import RECORDINGS_DIR
+from src.audio_recorder import AudioRecorder
+from src.gladia_service import GladiaService, format_transcript
+from src.gemini_service import GeminiService, save_notes_to_markdown
+from src.config import RECORDINGS_DIR
 
 
 class BlockCard(ctk.CTkFrame):

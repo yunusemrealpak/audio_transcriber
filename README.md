@@ -152,17 +152,20 @@ To record system audio, enable "Stereo Mix":
 
 ```
 audio_transcriber/
-├── main.py              # Main application & UI
-├── audio_recorder.py    # Audio recording module
-├── gladia_service.py    # Gladia API integration
-├── gemini_service.py    # Gemini AI integration
-├── config.py            # Configuration
+├── src/                 # Source code
+│   ├── __init__.py
+│   ├── audio_recorder.py    # Audio recording module
+│   ├── gladia_service.py    # Gladia API integration
+│   ├── gemini_service.py    # Gemini AI integration
+│   └── config.py            # Configuration
+├── main.py              # Main application entry point
+├── recordings/          # Audio files (auto-created)
 ├── requirements.txt     # Dependencies
 ├── .env.example         # Environment variables template
 ├── .gitignore           # Git ignore rules
+├── LICENSE              # MIT License
 ├── README.md            # English documentation
-├── README_TR.md         # Turkish documentation
-└── recordings/          # Audio files (auto-created)
+└── README_TR.md         # Turkish documentation
 ```
 
 ## 🔧 Troubleshooting

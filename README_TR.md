@@ -152,17 +152,20 @@ Sistem sesini kaydetmek için "Stereo Mix"i etkinleştirin:
 
 ```
 audio_transcriber/
-├── main.py              # Ana uygulama & UI
-├── audio_recorder.py    # Ses kayıt modülü
-├── gladia_service.py    # Gladia API entegrasyonu
-├── gemini_service.py    # Gemini AI entegrasyonu
-├── config.py            # Yapılandırma
+├── src/                 # Kaynak kod
+│   ├── __init__.py
+│   ├── audio_recorder.py    # Ses kayıt modülü
+│   ├── gladia_service.py    # Gladia API entegrasyonu
+│   ├── gemini_service.py    # Gemini AI entegrasyonu
+│   └── config.py            # Yapılandırma
+├── main.py              # Ana uygulama giriş noktası
+├── recordings/          # Ses dosyaları (otomatik oluşur)
 ├── requirements.txt     # Bağımlılıklar
 ├── .env.example         # Ortam değişkenleri şablonu
 ├── .gitignore           # Git ignore kuralları
+├── LICENSE              # MIT Lisansı
 ├── README.md            # İngilizce dokümantasyon
-├── README_TR.md         # Türkçe dokümantasyon
-└── recordings/          # Ses dosyaları (otomatik oluşur)
+└── README_TR.md         # Türkçe dokümantasyon
 ```
 
 ## 🔧 Sorun Giderme

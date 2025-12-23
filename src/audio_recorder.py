@@ -7,7 +7,7 @@ import soundfile as sf
 from datetime import datetime
 from typing import Callable, Optional, List, Tuple
 
-from config import SAMPLE_RATE, BLOCK_DURATION_MINUTES, RECORDINGS_DIR
+from .config import SAMPLE_RATE, BLOCK_DURATION_MINUTES, RECORDINGS_DIR
 
 
 class AudioRecorder:

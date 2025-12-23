@@ -3,7 +3,7 @@ import time
 import requests
 from typing import Optional, Dict, Any
 
-from config import GLADIA_API_KEY, GLADIA_API_URL, GLADIA_UPLOAD_URL
+from .config import GLADIA_API_KEY, GLADIA_API_URL, GLADIA_UPLOAD_URL
 
 
 class GladiaService:

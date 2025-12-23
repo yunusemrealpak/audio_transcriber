@@ -1,7 +1,7 @@
 from google import genai
 from typing import Optional
 
-from config import GEMINI_API_KEY, GEMINI_MODEL
+from .config import GEMINI_API_KEY, GEMINI_MODEL
 
 
 class GeminiService:
